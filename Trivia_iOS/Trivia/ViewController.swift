@@ -22,9 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var perguntaLabel: UILabel!
     @IBOutlet weak var dicaLabel: UILabel!
     @IBOutlet weak var tamanhoFonteLabel: UILabel!
-    @IBOutlet weak var dicaImagem: UIImageView!
     
-    let perguntas: [PerguntaImagem] = [PerguntaImagem(enunciado: "Qual a capital da Croácia?", resposta: "Zagreb", elogio: "Tu é fera!", xingamento: "Vai ter que voltar pra escola!", dica: "Z_____"), PerguntaImagem(enunciado: "Em que ano Swift 1.0 tornou-se disponível?", resposta: "2014", elogio: "Parabéns!", xingamento: "Que besta! Errasse isso?", dica: "Teve copa"), PerguntaImagem(enunciado: "Qual o nome do segundo álbum do Vampire Weekend?", resposta: "Contra", elogio: "Isso aí!", xingamento: "Tá mal, hein?", dica: "?"), PerguntaImagem(enunciado: "Qual o nome do vocalista de Arctic Monkeys?", resposta: "Alex Turner", elogio: "Isso mesmo!", xingamento: "Errou!!", nomeImagem: "alexTurner")]
+    let perguntas: [Pergunta] = [Pergunta(enunciado: "Qual a capital da Croácia?", resposta: "Zagreb", elogio: "Tu é fera!", xingamento: "Vai ter que voltar pra escola!", dica: "Z_____"), Pergunta(enunciado: "Em que ano Swift 1.0 tornou-se disponível?", resposta: "2014", elogio: "Parabéns!", xingamento: "Que besta! Errasse isso?", dica: "Teve copa"), Pergunta(enunciado: "Qual o nome do segundo álbum do Vampire Weekend?", resposta: "Contra", elogio: "Isso aí!", xingamento: "Tá mal, hein?", dica: "?"), Pergunta(enunciado: "Qual o nome do vocalista de Arctic Monkeys?", resposta: "Alex Turner", elogio: "Isso mesmo!", xingamento: "Errou!!", dica: "?")]
     var indice = 0
     
     override func viewDidLoad() {
@@ -43,8 +42,6 @@ class ViewController: UIViewController {
         tamanhoFonte.minimumValue = 12
         tamanhoFonte.maximumValue = 30
         tamanhoFonte.value = 17
-        
-        dicaImagem.isHidden = true
     }
     
     @IBAction func verifica(_ sender: Any) {
@@ -64,19 +61,12 @@ class ViewController: UIViewController {
         comentario.text = ""
         switchDica.isOn = false
         dica.text = ""
-        dicaImagem.isHidden = true
         perguntaLabel.text = "Pergunta \(Int(stepperPergunta.value))/\(qntPerguntas)"
     }
     
     @IBAction func mostraDica(_ sender: Any) {
         if switchDica.isOn {
-            if perguntas[self.indice].nomeImagem != "" {
-                dicaImagem.image = UIImage(named: perguntas[self.indice].nomeImagem)
-                dicaImagem.isHidden = false
-                dica.text = ""
-            } else {
-                dica.text = perguntas[self.indice].dica
-            }
+            dica.text = perguntas[self.indice].dica
         } else {
             dica.text = ""
         }

@@ -113,7 +113,6 @@
                     <connections>
                         <outlet property="comentario" destination="ZpG-0F-vJR" id="k9T-p6-WhP"/>
                         <outlet property="dica" destination="pQw-Ky-hUV" id="L7b-aO-WbM"/>
-                        <outlet property="dicaImagem" destination="DKy-eW-DF1" id="T92-wY-GWu"/>
                         <outlet property="dicaLabel" destination="MDC-MH-8wp" id="nR5-qC-fKE"/>
                         <outlet property="enunciado" destination="tlW-lw-jpO" id="ode-gg-djc"/>
                         <outlet property="palpite" destination="mUW-nK-Iwa" id="EKz-4c-S4n"/>
