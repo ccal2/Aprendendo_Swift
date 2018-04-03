@@ -7,15 +7,17 @@
 //
 
 class Pergunta {
-    var enunciado: String
-    var resposta: String
-    var elogio: String
-    var xingamento: String
+    let enunciado: String
+    let resposta: String
+    let elogio: String
+    let xingamento: String
+    let dica: String
     
-    init (enunciado: String, resposta: String, elogio: String = "parabéns!", xingamento: String = "errou!") {
+    init (enunciado: String, resposta: String, elogio: String = "parabéns!", xingamento: String = "errou!", dica: String) {
         self.enunciado = enunciado
         self.resposta = resposta
         self.elogio = elogio
         self.xingamento = xingamento
+        self.dica = dica
     }
 }
