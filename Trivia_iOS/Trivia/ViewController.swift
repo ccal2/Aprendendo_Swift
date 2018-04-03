@@ -10,7 +10,7 @@ let qntPerguntas = 4
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enunciado: UILabel!
     @IBOutlet weak var palpite: UITextField!
     @IBOutlet weak var verifica: UIButton!
@@ -42,6 +42,14 @@ class ViewController: UIViewController {
         tamanhoFonte.minimumValue = 12
         tamanhoFonte.maximumValue = 30
         tamanhoFonte.value = 17
+        
+        palpite.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // o textField para de receber entrada
+        
+        return true
     }
     
     @IBAction func verifica(_ sender: Any) {
